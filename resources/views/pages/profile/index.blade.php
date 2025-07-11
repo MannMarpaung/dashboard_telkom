@@ -1,6 +1,9 @@
 @extends('layouts.stisla.parent')
 
 @section('content')
+    @extends('layouts.stisla.parent')
+
+@section('content')
     <section class="section">
         <div class="section-header">
             <h1>Table</h1>
@@ -39,7 +42,9 @@
                                             <td>{{ $project->user->name }}</td>
                                             <td>{{ $project->tipe_project }}</td>
                                             <td>{{ $project->status_project }}</td>
-                                            <td><a href="{{ route('orders.index', $project->id) }}">{{ $project->project_orders->count() }}</a></td>
+                                            <td><a
+                                                    href="{{ route('orders.index', $project->id) }}">{{ $project->project_orders->count() }}</a>
+                                            </td>
                                         </tr>
                                     @endforeach
                                 </table>
@@ -69,4 +74,6 @@
             </div>
         </div>
     </section>
+@endsection
+
 @endsection

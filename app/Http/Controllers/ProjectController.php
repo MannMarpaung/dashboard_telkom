@@ -22,7 +22,7 @@ class ProjectController extends Controller
         //     ->groupBy('a.nama_project', 'a.nama_pm', 'a.tipe_project', 'a.status_project')
         //     ->get();
 
-        $projects = Project::with('project_orders')->get();
+        $projects = Project::with(['project_orders', 'user'])->get();
 
         return view('pages.project.index', compact('projects'));
     }

@@ -17,7 +17,7 @@ class ProjectOrderFactory extends Factory
     public function definition(): array
     {
         return [
-            'project_id' => $this->faker->numberBetween(1, 10), // angka 1-10, tidak unique
+            'project_id' => $this->faker->numberBetween(1, 11), // angka 1-10, tidak unique
             'number_order' => $this->faker->unique()->numberBetween(1001606334, 1001822610), // string angka unik
         ];
     }

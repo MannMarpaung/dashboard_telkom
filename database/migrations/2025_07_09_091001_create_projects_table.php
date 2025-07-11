@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->string('nama_project');
-            $table->string('nama_pm');
             $table->enum('tipe_project', ['big_mega', 'regular']);
             $table->enum('status_project', ['lead', 'delay', 'closed', 'lag']);
             $table->timestamps();

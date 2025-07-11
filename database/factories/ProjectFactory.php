@@ -17,8 +17,8 @@ class ProjectFactory extends Factory
     public function definition(): array
     {
         return [
+            'user_id' => $this->faker->numberBetween(1, 20),
             'nama_project' => $this->faker->company(),
-            'nama_pm' => $this->faker->name(),
             'tipe_project' => $this->faker->randomElement(['big_mega', 'regular']),
             'status_project' => $this->faker->randomElement(['lead', 'delay', 'closed', 'lag']),
         ];

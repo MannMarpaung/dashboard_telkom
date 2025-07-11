@@ -9,6 +9,11 @@ class Project extends Model
 {
     use HasFactory;
 
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
     public function project_orders()
     {
         return $this->hasMany(ProjectOrder::class);

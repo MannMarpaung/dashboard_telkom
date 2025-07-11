@@ -14,5 +14,9 @@ class ProjectSeeder extends Seeder
     public function run(): void
     {
         Project::factory(10)->create();
+
+        Project::factory(5)->create([
+            'user_id' => 21,
+        ]);
     }
 }
