@@ -18,6 +18,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="card">
+                        <a href="{{ route('orders.create', $project_id) }}" class="btn btn-primary">Create Project Order</a>
                         <div class="card-header">
                             <h4>Full Width</h4>
                         </div>

@@ -32,6 +32,13 @@ class ProfileController extends Controller
             return redirect()->route('login');
         }
 
+        $request->validate([
+            'nama_project' => 'required',
+            'nilai_kontrak' => 'required',
+            'nilai_connectivity' => 'required',
+            'tipe_project' => 'required'
+        ]);
+
         Project::create([
             'user_id' => $user->id,
             'nama_project' => $request->nama_project,

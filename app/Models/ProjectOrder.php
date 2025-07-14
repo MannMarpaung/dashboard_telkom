@@ -9,6 +9,11 @@ class ProjectOrder extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'project_id',
+        'number_order',
+    ];
+
     public function project()
     {
         return $this->belongsTo(Project::class);
