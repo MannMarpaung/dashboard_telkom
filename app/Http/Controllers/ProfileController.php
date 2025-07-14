@@ -20,4 +20,20 @@ class ProfileController extends Controller
 
         return view('pages.profile.index', compact('projects'));
     }
+
+    public function update(Request $request, $project_id)
+    {
+        $user = Auth::user();
+
+        if (!$user) {
+            return redirect()->route('login');
+        }
+
+        $project = Project::find($project_id);
+
+        $project->status_project = $request->status_project;
+        $project->save();
+
+        return redirect()->route('profile.index');
+    }
 }

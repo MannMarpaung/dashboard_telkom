@@ -15,8 +15,10 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->string('nama_project');
+            $table->integer('nilai_kontrak');
+            $table->integer('nilai_connectivity');
             $table->enum('tipe_project', ['big_mega', 'regular']);
-            $table->enum('status_project', ['lead', 'delay', 'closed', 'lag']);
+            $table->enum('status_project', ['lead', 'delay', 'closed', 'lag'])->default('lead');
             $table->timestamps();
         });
     }

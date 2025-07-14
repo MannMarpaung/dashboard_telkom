@@ -1,9 +1,6 @@
 @extends('layouts.stisla.parent')
 
 @section('content')
-    @extends('layouts.stisla.parent')
-
-@section('content')
     <section class="section">
         <div class="section-header">
             <h1>Table</h1>
@@ -41,7 +38,18 @@
                                             <td>{{ $project->nama_project }}</td>
                                             <td>{{ $project->user->name }}</td>
                                             <td>{{ $project->tipe_project }}</td>
-                                            <td>{{ $project->status_project }}</td>
+                                            <td>
+                                                @php
+                                                    $colors = [
+                                                        'lead' => 'btn-primary',
+                                                        'lag' => 'btn-warning',
+                                                        'delay' => 'btn-danger',
+                                                        'closed' => 'btn-success',
+                                                    ];
+                                                @endphp
+                                                <button class="btn {{ $colors[$project->status_project] }}" data-toggle="modal"
+                                                    data-target="#statusProject{{ $project->id }}">{{ $project->status_project }}</button>
+                                            </td>
                                             <td><a
                                                     href="{{ route('orders.index', $project->id) }}">{{ $project->project_orders->count() }}</a>
                                             </td>
@@ -74,6 +82,8 @@
             </div>
         </div>
     </section>
-@endsection
 
+    @foreach ($projects as $project)
+        @include('pages.profile.modal-edit-status-project')
+    @endforeach
 @endsection
