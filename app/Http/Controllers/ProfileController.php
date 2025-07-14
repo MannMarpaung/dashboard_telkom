@@ -21,6 +21,28 @@ class ProfileController extends Controller
         return view('pages.profile.index', compact('projects'));
     }
 
+    public function create() {
+        return view('pages.profile.create');
+    }
+
+    public function store(Request $request) {
+        $user = Auth::user();
+
+        if (!$user) {
+            return redirect()->route('login');
+        }
+
+        Project::create([
+            'user_id' => $user->id,
+            'nama_project' => $request->nama_project,
+            'nilai_kontrak' => $request->nilai_kontrak,
+            'nilai_connectivity' => $request->nilai_connectivity,
+            'tipe_project' => $request->tipe_project
+        ]);
+
+        return redirect()->route('profile.index');
+    }
+
     public function update(Request $request, $project_id)
     {
         $user = Auth::user();
